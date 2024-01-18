@@ -1,5 +1,3 @@
-name: CMake on multiple platforms
-
 name: default
 on: [push, workflow_dispatch]
 
