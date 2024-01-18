@@ -22,6 +22,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
+    - name: Check Clang version
+      run: clang --version
+
     - name: Set reusable strings
       id: strings
       shell: bash
