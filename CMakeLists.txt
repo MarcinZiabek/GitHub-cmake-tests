@@ -7,16 +7,6 @@ set(CMAKE_BUILD_TYPE MinSizeRel)
 add_compile_options(-O3)
 
 
-# enable IPO to achieve better performance, reduce artifact size
-include(CheckIPOSupported)
-check_ipo_supported(RESULT result)
-if(result)
-    set(CMAKE_INTERPROCEDURAL_OPTIMIZATION TRUE)
-else()
-    message(WARNING "IPO is not supported: ${output}")
-endif()
-
-
 # include all code source files
 file(GLOB_RECURSE SOURCES "src/*.cpp")
 
