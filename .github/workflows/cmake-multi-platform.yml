@@ -25,6 +25,9 @@ jobs:
     - name: Check Clang version
       run: clang --version
 
+    - name: Print environment variables
+      run: env
+
     - name: Set reusable strings
       id: strings
       shell: bash
