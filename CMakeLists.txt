@@ -28,13 +28,3 @@ add_library(skia_questpdf SHARED ${SOURCES})
 
 # configure output file name
 set_target_properties(skia_questpdf PROPERTIES OUTPUT_NAME "skia_questpdf" PREFIX "")
-
-
-# configure VCPKG and install packages
-set(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake" CACHE STRING "")
-find_package(unofficial-skia CONFIG REQUIRED)
-target_link_libraries(skia_questpdf PRIVATE unofficial::skia::skia unofficial::skia::modules::skparagraph unofficial::skia::modules::svg)
-
-
-# reduce output package size
-add_custom_command(TARGET skia_questpdf POST_BUILD COMMAND ${CMAKE_STRIP} -x $<TARGET_FILE:skia_questpdf>)
